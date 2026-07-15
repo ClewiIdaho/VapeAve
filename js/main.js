@@ -124,6 +124,18 @@
     openBadge.classList.toggle("is-closed", !isOpen);
   }
 
+  /* ---------- Random neon jolt (real signs stutter unpredictably) ---------- */
+  const heroSign = document.querySelector(".hero__sign");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (heroSign && !reduceMotion) {
+    const jolt = () => {
+      heroSign.classList.add("is-jolting");
+      setTimeout(() => heroSign.classList.remove("is-jolting"), 230);
+      setTimeout(jolt, 3800 + Math.random() * 7000);
+    };
+    setTimeout(jolt, 3200);
+  }
+
   /* ---------- Mock rewards signup (demo only — nothing is sent) ---------- */
   const joinForm = document.getElementById("joinForm");
   if (joinForm) {
