@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vape Ave &amp; Smoke Shop — Garden City, Idaho</title>
+  <meta name="description" content="Vape Ave & Smoke Shop — Garden City's neighborhood vape shop. Disposables, e-liquids, devices, glass & more. Open daily 8 AM to midnight. 7470 W State St.">
+  <link rel="preload" href="fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💨</text></svg>">
+</head>
+<body>
+
+  <!-- ============ AGE GATE ============ -->
+  <div class="age-gate" id="ageGate" aria-modal="true" role="dialog" aria-labelledby="ageGateTitle">
+    <div class="age-gate__card">
+      <div class="sign sign--small">
+        <span class="sign__green">VAPE</span><span class="sign__red">AVE</span>
+      </div>
+      <h2 id="ageGateTitle">Are you 21 or older?</h2>
+      <p>You must be of legal age to enter this site.<br>Please verify your age to continue.</p>
+      <div class="age-gate__actions">
+        <button class="btn btn--green" id="ageYes">Yes, I'm 21+</button>
+        <button class="btn btn--ghost-red" id="ageNo">No, exit</button>
+      </div>
+      <p class="age-gate__warning">WARNING: This product contains nicotine.<br>Nicotine is an addictive chemical.</p>
+    </div>
+  </div>
+
+  <!-- ============ NICOTINE WARNING BAR ============ -->
+  <div class="warning-bar" role="note">
+    WARNING: This product contains nicotine. Nicotine is an addictive chemical.
+  </div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#top" class="nav__logo" aria-label="Vape Ave home">
+        <span class="sign sign--nav">
+          <span class="sign__green">VAPE</span><span class="sign__red">AVE</span>
+        </span>
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Main navigation">
+        <a href="#shop">Shop</a>
+        <a href="order.html">Pickup</a>
+        <a href="#rewards">Rewards</a>
+        <a href="#about">About</a>
+        <a href="#visit">Visit</a>
+        <a href="tel:+12088537630" class="nav__phone">(208) 853-7630</a>
+      </nav>
+      <button class="nav__burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero__glow hero__glow--green" aria-hidden="true"></div>
+      <div class="hero__glow hero__glow--red" aria-hidden="true"></div>
+      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="hero__cloud hero__cloud--1" aria-hidden="true"></div>
+      <div class="hero__cloud hero__cloud--2" aria-hidden="true"></div>
+      <div class="hero__vapor" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+      <div class="container hero__inner">
+        <p class="hero__eyebrow reveal">Garden City, Idaho &middot; Open daily 8 AM &ndash; Midnight</p>
+        <h1 class="hero__sign reveal" aria-label="Vape Ave">
+          <span class="sign sign--hero">
+            <span class="sign__green">VAPE</span><span class="sign__red flicker">AVE</span>
+          </span>
+        </h1>
+        <p class="hero__tagline reveal">Your neighborhood vape &amp; smoke shop.<br>
+        The biggest wall of flavor on State Street — and the latest hours in town.</p>
+        <div class="hero__cta reveal">
+          <a href="order.html" class="btn btn--green">Order Pickup</a>
+          <a href="#shop" class="btn btn--red-outline">Shop the Wall</a>
+        </div>
+        <div class="hero__proof reveal">
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <span><strong>4.8</strong> &middot; 211 Google reviews</span>
+        </div>
+      </div>
+      <div class="hero__scroll" aria-hidden="true"><span></span></div>
+    </section>
+
+    <!-- ============ FLAVOR TICKER ============ -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker__track">
+        <span>Miami Mint</span><i>◆</i><span>Blue Razz Ice</span><i>◆</i><span>Sour Apple B-Burst</span><i>◆</i>
+        <span>Watermelon Ice</span><i>◆</i><span>Dragon Melon</span><i>◆</i><span>Cherry Bomb</span><i>◆</i>
+        <span>Pink Lemonade</span><i>◆</i><span>Meta Moon</span><i>◆</i><span>Juicy Peach Ice</span><i>◆</i>
+        <span>Mexico Mango</span><i>◆</i><span>Black Cherry</span><i>◆</i><span>Frozen Pina Colada</span><i>◆</i>
+        <span>Miami Mint</span><i>◆</i><span>Blue Razz Ice</span><i>◆</i><span>Sour Apple B-Burst</span><i>◆</i>
+        <span>Watermelon Ice</span><i>◆</i><span>Dragon Melon</span><i>◆</i><span>Cherry Bomb</span><i>◆</i>
+        <span>Pink Lemonade</span><i>◆</i><span>Meta Moon</span><i>◆</i><span>Juicy Peach Ice</span><i>◆</i>
+        <span>Mexico Mango</span><i>◆</i><span>Black Cherry</span><i>◆</i><span>Frozen Pina Colada</span><i>◆</i>
+      </div>
+    </div>
+
+    <!-- ============ CATEGORIES ============ -->
+    <section class="section" id="shop">
+      <div class="container">
+        <p class="section__eyebrow reveal">What we carry</p>
+        <h2 class="section__title reveal">Everything under <span class="glow-green">one roof</span></h2>
+        <p class="section__lede reveal">Hundreds of flavors in stock, restocked weekly. If we don't have it, ask — we'll track it down.</p>
+
+        <div class="cat-grid">
+          <article class="cat-card reveal">
+            <div class="cat-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="20" rx="2"/><line x1="9" y1="7" x2="15" y2="7"/><circle cx="12" cy="17" r="1.2"/></svg>
+            </div>
+            <h3>Disposables</h3>
+            <p>Geek Bar Pulse, Foger Switch Pro 30K, Lost Mary, Raz &amp; more. The biggest wall in Garden City.</p>
+            <span class="cat-card__tag">300+ flavors</span>
+          </article>
+          <article class="cat-card reveal">
+            <div class="cat-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M10 3h4v4l2 3v10a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V10l2-3z"/><line x1="8" y1="14" x2="16" y2="14"/></svg>
+            </div>
+            <h3>E-Liquids</h3>
+            <p>Freebase and salt nic in every strength — premium juice lines for every setup and budget.</p>
+            <span class="cat-card__tag">Salt &amp; freebase</span>
+          </article>
+          <article class="cat-card reveal">
+            <div class="cat-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="7" y="4" width="10" height="16" rx="3"/><rect x="10" y="8" width="4" height="5" rx="1"/><line x1="12" y1="16" x2="12" y2="17"/></svg>
+            </div>
+            <h3>Devices &amp; Mods</h3>
+            <p>Pod systems, box mods, tanks and coils. We'll help you find the right setup — no upsell.</p>
+            <span class="cat-card__tag">Starter to pro</span>
+          </article>
+          <article class="cat-card reveal">
+            <div class="cat-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 3v5"/><path d="M8 8h8l1 9a3 3 0 0 1-3 3h-4a3 3 0 0 1-3-3l1-9z"/><path d="M10 3h4"/></svg>
+            </div>
+            <h3>Glass</h3>
+            <p>Hand pipes, water pipes and rigs — locally sourced art glass alongside everyday pieces.</p>
+            <span class="cat-card__tag">Local art glass</span>
+          </article>
+          <article class="cat-card reveal">
+            <div class="cat-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>
+            </div>
+            <h3>Accessories</h3>
+            <p>Coils, batteries, chargers, cases, grinders, papers — all the small stuff that keeps you running.</p>
+            <span class="cat-card__tag">Grab &amp; go</span>
+          </article>
+          <article class="cat-card cat-card--cta reveal">
+            <h3>Can't find it?</h3>
+            <p>Call us. If it exists, we can usually have it on the shelf within the week.</p>
+            <a href="tel:+12088537630" class="btn btn--green btn--sm">Call the shop</a>
+          </article>
+        </div>
+
+        <div class="brands reveal" aria-label="Brands we stock">
+          <span class="brands__label">On the wall right now</span>
+          <div class="brands__row">
+            <span>GEEK BAR</span><span>FOGER</span><span>LOST MARY</span><span>RAZ</span><span>ELF BAR</span><span>NORTH</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PICKUP TEASER ============ -->
+    <section class="section section--pickup" id="pickup">
+      <div class="container">
+        <div class="pickup-teaser">
+          <div class="pickup-teaser__text">
+            <p class="section__eyebrow reveal">Order ahead</p>
+            <h2 class="section__title reveal">Skip the line.<br><span class="glow-red">Grab &amp; go.</span></h2>
+            <p class="reveal">Build your order online, we bag it behind the counter and text you when it's ready
+            — usually about 15 minutes. Pay at pickup, card or cash. 21+ with ID, every time.</p>
+            <div class="hero__cta reveal" style="justify-content:flex-start">
+              <a href="order.html" class="btn btn--green">Start a pickup order</a>
+            </div>
+          </div>
+          <div class="pickup-teaser__steps">
+            <div class="mini-step reveal"><em>01</em><span>Build your bag online</span></div>
+            <div class="mini-step reveal"><em>02</em><span>We text you when it's ready</span></div>
+            <div class="mini-step reveal"><em>03</em><span>Grab &amp; go at the counter</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ REWARDS TEASER ============ -->
+    <section class="section section--rewards" id="rewards">
+      <div class="container">
+        <div class="rewards-banner reveal">
+          <div class="rewards-banner__badge">Proposed feature &middot; Demo preview</div>
+          <div class="rewards-banner__body">
+            <p class="section__eyebrow">Coming soon to the counter</p>
+            <h2 class="section__title">Vape Ave <span class="glow-red">Rewards</span></h2>
+            <p>Every dollar earns points. Points turn into discounts and free product.
+            A loyalty program built to keep your regulars coming back — and bring new faces through the door.</p>
+            <div class="rewards-banner__points">
+              <div class="point-pill"><strong>1 pt</strong><span>per $1 spent</span></div>
+              <div class="point-pill"><strong>100 pts</strong><span>= $5 off</span></div>
+              <div class="point-pill"><strong>2&times; points</strong><span>on Tuesdays</span></div>
+            </div>
+            <a href="rewards.html" class="btn btn--red">See how Rewards works</a>
+          </div>
+          <div class="rewards-banner__card" aria-hidden="true">
+            <div class="loyalty-card">
+              <div class="loyalty-card__top">
+                <span class="sign sign--card"><span class="sign__green">VAPE</span><span class="sign__red">AVE</span></span>
+                <span class="loyalty-card__tier">VIP</span>
+              </div>
+              <div class="loyalty-card__points">
+                <em>1,240</em>
+                <span>points</span>
+              </div>
+              <div class="loyalty-card__bar"><i style="width:74%"></i></div>
+              <div class="loyalty-card__bottom">
+                <span>Member since 2026</span>
+                <span>260 pts to next reward</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="container about">
+        <div class="about__text">
+          <p class="section__eyebrow reveal">About the shop</p>
+          <h2 class="section__title reveal">Independent. Local.<br><span class="glow-green">Open when you need us.</span></h2>
+          <p class="reveal">Vape Ave is a locally owned, independent shop on State Street in Garden City —
+          not a chain, not a franchise. We know our regulars by name and our wall by heart.</p>
+          <p class="reveal">Whether you're picking up your usual, switching off cigarettes, or hunting a flavor
+          nobody else stocks, you'll get straight answers from people who actually use what they sell.</p>
+          <ul class="about__list">
+            <li class="reveal"><i>◆</i> Open 365 days a year, 8 AM to midnight</li>
+            <li class="reveal"><i>◆</i> Cash-friendly — ATM in store</li>
+            <li class="reveal"><i>◆</i> New drops weekly, requests welcome</li>
+            <li class="reveal"><i>◆</i> 21+ only, ID checked every time</li>
+          </ul>
+        </div>
+        <div class="about__stats">
+          <div class="stat reveal"><em data-count="4.8">0</em><span>Google rating</span></div>
+          <div class="stat reveal"><em data-count="211">0</em><span>5-star-heavy reviews</span></div>
+          <div class="stat reveal"><em data-count="300">0</em><span>flavors in stock</span></div>
+          <div class="stat reveal"><em data-count="16">0</em><span>hours open, every day</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ REVIEWS ============ -->
+    <section class="section section--reviews">
+      <div class="container">
+        <p class="section__eyebrow reveal">Word on the street</p>
+        <h2 class="section__title reveal">Rated <span class="glow-green">4.8</span> on Google</h2>
+        <div class="review-grid">
+          <blockquote class="review reveal">
+            <span class="stars" aria-hidden="true">★★★★★</span>
+            <p>"Best selection in the Boise area, hands down. The wall of disposables is unreal and the staff actually knows their stuff."</p>
+            <footer>— Google review</footer>
+          </blockquote>
+          <blockquote class="review reveal">
+            <span class="stars" aria-hidden="true">★★★★★</span>
+            <p>"Open til midnight is a lifesaver. Prices beat every other shop I've been to and they always have my flavor in stock."</p>
+            <footer>— Google review</footer>
+          </blockquote>
+          <blockquote class="review reveal">
+            <span class="stars" aria-hidden="true">★★★★★</span>
+            <p>"Super friendly, never pushy. Helped me find a setup to get off cigarettes and checked in next time I came by."</p>
+            <footer>— Google review</footer>
+          </blockquote>
+        </div>
+        <p class="review-note reveal">Review copy is representative placeholder text for this demo — live site would pull real Google reviews.</p>
+      </div>
+    </section>
+
+    <!-- ============ VISIT ============ -->
+    <section class="section section--visit" id="visit">
+      <div class="container">
+        <p class="section__eyebrow reveal">Come say hi</p>
+        <h2 class="section__title reveal">Find us on <span class="glow-red">State Street</span></h2>
+        <div class="visit">
+          <div class="visit__card reveal">
+            <h3>Address</h3>
+            <p>7470 W State St<br>Garden City, ID 83714</p>
+            <a class="visit__link" href="https://maps.google.com/?q=Vape+Ave+%26+Smoke+Shop+7470+W+State+St+Garden+City+ID+83714" target="_blank" rel="noopener">Get directions →</a>
+          </div>
+          <div class="visit__card reveal">
+            <h3>Hours</h3>
+            <p class="visit__hours"><span>Every day</span><strong>8:00 AM – 12:00 AM</strong></p>
+            <p class="visit__open" id="openBadge">Open now</p>
+          </div>
+          <div class="visit__card reveal">
+            <h3>Contact</h3>
+            <p><a class="visit__link" href="tel:+12088537630">(208) 853-7630</a></p>
+            <p>Call ahead — we'll set anything aside at the counter.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="sign sign--nav"><span class="sign__green">VAPE</span><span class="sign__red">AVE</span></span>
+        <p>Garden City's neighborhood vape &amp; smoke shop.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Shop</h4>
+        <a href="#shop">Disposables</a>
+        <a href="#shop">E-Liquids</a>
+        <a href="#shop">Devices</a>
+        <a href="#shop">Glass</a>
+      </div>
+      <div class="footer__col">
+        <h4>Vape Ave</h4>
+        <a href="order.html">Pickup</a>
+        <a href="rewards.html">Rewards</a>
+        <a href="#about">About</a>
+        <a href="#visit">Visit</a>
+      </div>
+      <div class="footer__col">
+        <h4>Hours</h4>
+        <p>Open daily<br>8 AM – Midnight</p>
+        <a href="tel:+12088537630">(208) 853-7630</a>
+      </div>
+    </div>
+    <div class="container footer__legal">
+      <p>WARNING: This product contains nicotine. Nicotine is an addictive chemical. Must be 21+ to purchase.</p>
+      <p>© 2026 Vape Ave &amp; Smoke Shop · Garden City, Idaho · <span class="footer__demo">Demo site — built as a design concept, not the live storefront.</span></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

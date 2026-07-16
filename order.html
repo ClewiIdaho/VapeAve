@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Pickup — Vape Ave, Garden City, Idaho</title>
+  <meta name="description" content="Order ahead from Vape Ave & Smoke Shop and skip the line. Build your order online, pick up at the counter in Garden City, Idaho. Pay at pickup — 21+ with valid ID.">
+  <link rel="preload" href="fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💨</text></svg>">
+</head>
+<body>
+
+  <!-- ============ NICOTINE WARNING BAR ============ -->
+  <div class="warning-bar" role="note">
+    WARNING: This product contains nicotine. Nicotine is an addictive chemical.
+  </div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Vape Ave home">
+        <span class="sign sign--nav">
+          <span class="sign__green">VAPE</span><span class="sign__red">AVE</span>
+        </span>
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Main navigation">
+        <a href="index.html#shop">Shop</a>
+        <a href="order.html" class="is-active">Pickup</a>
+        <a href="rewards.html">Rewards</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#visit">Visit</a>
+        <a href="tel:+12088537630" class="nav__phone">(208) 853-7630</a>
+      </nav>
+      <button class="nav__burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============ PICKUP HERO ============ -->
+    <section class="hero hero--sub">
+      <div class="hero__glow hero__glow--green" aria-hidden="true"></div>
+      <div class="hero__glow hero__glow--red" aria-hidden="true"></div>
+      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="hero__cloud hero__cloud--1" aria-hidden="true"></div>
+      <div class="hero__cloud hero__cloud--2" aria-hidden="true"></div>
+      <div class="hero__vapor" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+      <div class="container hero__inner">
+        <p class="concept-badge reveal">Proposed feature — simulated ordering, nothing is sent</p>
+        <h1 class="hero__sign reveal" aria-label="Order Pickup">
+          <span class="sign sign--hero sign--rewards">
+            <span class="sign__green">ORDER</span> <span class="sign__red flicker">PICKUP</span>
+          </span>
+        </h1>
+        <p class="hero__tagline reveal">Build your order online. We'll have it bagged at the counter.<br>
+        Ready in about 15 minutes — pay when you pick up.</p>
+        <div class="hero__cta reveal">
+          <a href="#menu" class="btn btn--green">Start an order</a>
+          <button class="btn btn--red-outline" data-cart-open>View cart <span class="cart-count" data-cart-count hidden>0</span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW PICKUP WORKS ============ -->
+    <section class="section section--tight">
+      <div class="container">
+        <div class="steps">
+          <div class="step reveal">
+            <span class="step__num">01</span>
+            <h3>Build your bag</h3>
+            <p>Pick your products and flavors below. Prices are demo placeholders — the live site syncs with the register.</p>
+          </div>
+          <div class="step reveal">
+            <span class="step__num">02</span>
+            <h3>We get it ready</h3>
+            <p>Your order prints behind the counter and we text you when it's bagged. Usually about 15 minutes.</p>
+          </div>
+          <div class="step reveal">
+            <span class="step__num">03</span>
+            <h3>Grab &amp; go</h3>
+            <p>Pay at the counter — card or cash. Bring a valid ID: every pickup is checked, 21+ only, no exceptions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MENU ============ -->
+    <section class="section section--menu" id="menu">
+      <div class="container">
+        <p class="section__eyebrow reveal">The menu</p>
+        <h2 class="section__title reveal">Order for <span class="glow-green">pickup</span></h2>
+        <p class="section__lede reveal">A sample of the wall. Demo catalog — the real build pulls live inventory and prices from the point of sale.</p>
+
+        <div class="menu-filters reveal" role="tablist" aria-label="Filter products" id="menuFilters">
+          <button class="menu-filter is-active" data-filter="all">All</button>
+          <button class="menu-filter" data-filter="disposables">Disposables</button>
+          <button class="menu-filter" data-filter="eliquids">E-Liquids</button>
+          <button class="menu-filter" data-filter="devices">Devices</button>
+          <button class="menu-filter" data-filter="accessories">Accessories</button>
+          <button class="menu-filter" data-filter="glass">Glass</button>
+        </div>
+
+        <div class="product-grid" id="productGrid"><!-- rendered by js/order.js --></div>
+      </div>
+    </section>
+
+    <!-- ============ PICKUP FINE PRINT ============ -->
+    <section class="section section--tight">
+      <div class="container">
+        <div class="pickup-notes reveal">
+          <div class="pickup-note"><i class="glow-green">◆</i><p><strong>Pay at pickup.</strong> Card or cash at the counter — nothing is charged online.</p></div>
+          <div class="pickup-note"><i class="glow-red">◆</i><p><strong>21+ with valid ID.</strong> We scan every ID at pickup, every time.</p></div>
+          <div class="pickup-note"><i class="glow-green">◆</i><p><strong>Held til close.</strong> Orders wait at the counter until midnight, then release.</p></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ CART FAB ============ -->
+  <button class="cart-fab" data-cart-open aria-label="Open cart">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h2l2.2 11.2a1.6 1.6 0 0 0 1.6 1.3h7.6a1.6 1.6 0 0 0 1.6-1.3L20.5 9H7"/><circle cx="10.5" cy="20.5" r="1.4"/><circle cx="17.5" cy="20.5" r="1.4"/></svg>
+    <span class="cart-count" data-cart-count hidden>0</span>
+  </button>
+
+  <!-- ============ CART DRAWER ============ -->
+  <div class="cart-overlay" id="cartOverlay" hidden></div>
+  <aside class="cart" id="cartDrawer" aria-label="Pickup order cart" aria-hidden="true">
+
+    <!-- Cart view -->
+    <div class="cart__view" id="cartView">
+      <header class="cart__head">
+        <h2>Your pickup order</h2>
+        <button class="cart__close" id="cartClose" aria-label="Close cart">✕</button>
+      </header>
+
+      <div class="cart__empty" id="cartEmpty">
+        <span aria-hidden="true">💨</span>
+        <p>Nothing in the bag yet.</p>
+        <button class="btn btn--green btn--sm" id="cartBrowse">Browse the menu</button>
+      </div>
+
+      <div class="cart__body" id="cartBody" hidden>
+        <ul class="cart__items" id="cartItems"></ul>
+
+        <div class="cart__totals">
+          <div class="cart__row"><span>Subtotal</span><strong id="cartSubtotal">$0.00</strong></div>
+          <div class="cart__row cart__row--points"><span>◆ Vape Ave Rewards</span><span id="cartPoints">earns 0 pts</span></div>
+          <p class="cart__tax-note">Tax calculated at the register. Pay at pickup — card or cash.</p>
+        </div>
+
+        <form class="cart__form" id="pickupForm" novalidate>
+          <div class="cart__field">
+            <label for="puName">Name for the order</label>
+            <input type="text" id="puName" placeholder="Ada Countyson" autocomplete="off" required>
+          </div>
+          <div class="cart__field">
+            <label for="puPhone">Mobile (for the "it's ready" text)</label>
+            <input type="tel" id="puPhone" placeholder="(208) 555-0134" autocomplete="off" required>
+          </div>
+          <div class="cart__field">
+            <label for="puTime">Pickup time</label>
+            <select id="puTime">
+              <option value="asap">ASAP — ready in ~15 min</option>
+              <option value="30">In 30 minutes</option>
+              <option value="60">In 1 hour</option>
+              <option value="tonight">This evening</option>
+            </select>
+          </div>
+          <p class="cart__error" id="cartError" hidden></p>
+          <button type="submit" class="btn btn--green cart__submit">Place pickup order (demo)</button>
+          <p class="cart__disclaimer">Simulated checkout — no order is sent, nothing is stored.</p>
+        </form>
+      </div>
+    </div>
+
+    <!-- Confirmation view -->
+    <div class="cart__view cart__confirm" id="cartConfirm" hidden>
+      <header class="cart__head">
+        <h2>Order in!</h2>
+        <button class="cart__close" id="confirmClose" aria-label="Close cart">✕</button>
+      </header>
+      <div class="confirm">
+        <div class="confirm__check" aria-hidden="true">✓</div>
+        <p class="confirm__num" id="confirmNum">VA-0000</p>
+        <p class="confirm__ready" id="confirmReady">Ready around —</p>
+        <div class="confirm__details">
+          <p><strong id="confirmName">—</strong>, we'll text <strong id="confirmPhone">—</strong> the moment it's bagged.</p>
+          <p>Vape Ave &amp; Smoke Shop<br>7470 W State St, Garden City, ID<br>
+          <a class="visit__link" href="https://maps.google.com/?q=Vape+Ave+%26+Smoke+Shop+7470+W+State+St+Garden+City+ID+83714" target="_blank" rel="noopener">Get directions →</a></p>
+          <p class="confirm__id">Bring a valid ID — 21+ only. Pay at the counter.</p>
+        </div>
+        <p class="cart__disclaimer">This was a simulation — no order was actually placed.</p>
+        <button class="btn btn--red-outline btn--sm" id="confirmReset">Start a new demo order</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Add-to-cart toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="sign sign--nav"><span class="sign__green">VAPE</span><span class="sign__red">AVE</span></span>
+        <p>Garden City's neighborhood vape &amp; smoke shop.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Shop</h4>
+        <a href="index.html#shop">Disposables</a>
+        <a href="index.html#shop">E-Liquids</a>
+        <a href="index.html#shop">Devices</a>
+        <a href="index.html#shop">Glass</a>
+      </div>
+      <div class="footer__col">
+        <h4>Vape Ave</h4>
+        <a href="order.html">Pickup</a>
+        <a href="rewards.html">Rewards</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#visit">Visit</a>
+      </div>
+      <div class="footer__col">
+        <h4>Hours</h4>
+        <p>Open daily<br>8 AM – Midnight</p>
+        <a href="tel:+12088537630">(208) 853-7630</a>
+      </div>
+    </div>
+    <div class="container footer__legal">
+      <p>WARNING: This product contains nicotine. Nicotine is an addictive chemical. Must be 21+ to purchase.</p>
+      <p>© 2026 Vape Ave &amp; Smoke Shop · Garden City, Idaho · <span class="footer__demo">Demo site — built as a design concept, not the live storefront.</span></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/order.js"></script>
+</body>
+</html>
