@@ -321,6 +321,19 @@ a { color: inherit; text-decoration: none; }
   .street__main::before,
   .trail,
   .sign--cross,
+  .section-clouds i,
+  .point-pill,
+  .rewards-banner__badge,
+  .concept-badge,
+  .loyalty-card::after,
+  .loyalty-card__points em,
+  .loyalty-card__bar i::after,
+  .loyalty-card__tier,
+  .cat-card__icon,
+  .product__icon,
+  .perk h4 span,
+  .about__list i,
+  .pickup-note i,
   .btn::before { animation: none !important; }
   .trail { display: none; }
   .hero__vapor { display: none; }
@@ -1036,10 +1049,48 @@ a { color: inherit; text-decoration: none; }
   50% { opacity: 1; }
 }
 
+/* Diamond accents pulse everywhere they appear */
+.perk h4 span,
+.about__list i,
+.pickup-note i {
+  animation: diamondPulse 3.2s ease-in-out infinite;
+}
+
+.perk:nth-child(2) h4 span,
+.about__list li:nth-child(even) i,
+.pickup-note:nth-child(2) i { animation-delay: -1.6s; }
+
 @keyframes tickerScroll {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
+
+/* ==========================================================================
+   SECTION CLOUDS — soft clouds drifting through featured sections
+   ========================================================================== */
+
+.section--rewards, .section--pickup, .section--join, .section--menu {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-clouds {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.section-clouds i {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.9), transparent 65%);
+  opacity: 0.04;
+  filter: blur(30px);
+}
+
+.section-clouds i:nth-child(1) { width: 480px; height: 150px; top: 10%; animation: cloudDrift 58s linear -12s infinite; }
+.section-clouds i:nth-child(2) { width: 640px; height: 200px; bottom: 6%; animation: cloudDrift 76s linear -44s infinite reverse; }
+.section-clouds i:nth-child(3) { width: 340px; height: 120px; top: 46%; opacity: 0.03; animation: cloudDrift 66s linear -28s infinite; }
 
 /* ==========================================================================
    SECTIONS
@@ -1116,6 +1167,18 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   justify-content: center;
   margin-bottom: 1.3rem;
+  animation: iconBob 6s ease-in-out infinite;
+}
+
+/* Stagger the bob so the grid ripples instead of marching in step */
+.cat-card:nth-child(2) .cat-card__icon { animation-delay: -1.2s; }
+.cat-card:nth-child(3) .cat-card__icon { animation-delay: -2.4s; }
+.cat-card:nth-child(4) .cat-card__icon { animation-delay: -3.6s; }
+.cat-card:nth-child(5) .cat-card__icon { animation-delay: -4.8s; }
+
+@keyframes iconBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
 }
 
 .cat-card:nth-child(even) .cat-card__icon { background: var(--red-faint); }
@@ -1129,6 +1192,17 @@ a { color: inherit; text-decoration: none; }
   stroke-linecap: round;
   stroke-linejoin: round;
   filter: drop-shadow(0 0 6px var(--green-soft));
+  transition: transform 0.35s var(--ease), filter 0.35s;
+}
+
+/* Icon pops and brightens when its card is hovered */
+.cat-card:hover .cat-card__icon svg {
+  transform: scale(1.18) rotate(-5deg);
+  filter: drop-shadow(0 0 12px var(--green));
+}
+
+.cat-card:nth-child(even):hover .cat-card__icon svg {
+  filter: drop-shadow(0 0 12px var(--red));
 }
 
 .cat-card:nth-child(even) .cat-card__icon svg {
@@ -1279,6 +1353,26 @@ a { color: inherit; text-decoration: none; }
 
 .point-pill span { font-size: 0.78rem; color: var(--text-dim); }
 
+/* Pills bob gently, offset like things caught in the same breeze */
+.point-pill { animation: pillBob 5.5s ease-in-out infinite; }
+.point-pill:nth-child(2) { animation-delay: -1.8s; }
+.point-pill:nth-child(3) { animation-delay: -3.6s; }
+
+@keyframes pillBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Rewards badge breathes */
+.rewards-banner__badge, .concept-badge {
+  animation: badgeBreathe 4.5s ease-in-out infinite;
+}
+
+@keyframes badgeBreathe {
+  0%, 100% { box-shadow: 0 0 0 rgba(255, 45, 77, 0); }
+  50% { box-shadow: 0 0 18px rgba(255, 45, 77, 0.25); }
+}
+
 /* Loyalty card mock — floats gently, as if riding a cloud */
 .rewards-banner__card { animation: cardFloat 6.5s ease-in-out infinite; }
 
@@ -1310,6 +1404,30 @@ a { color: inherit; text-decoration: none; }
     0 0 60px rgba(255, 45, 77, 0.08);
 }
 
+/* Glossy sheen sweeps across the card every few seconds */
+.loyalty-card { position: relative; overflow: hidden; }
+
+.loyalty-card::after {
+  content: "";
+  position: absolute;
+  top: -60%;
+  bottom: -60%;
+  left: -70%;
+  width: 45%;
+  background: linear-gradient(105deg,
+    transparent, rgba(255, 255, 255, 0.05) 40%,
+    rgba(255, 255, 255, 0.11) 50%,
+    rgba(255, 255, 255, 0.05) 60%, transparent);
+  transform: rotate(10deg);
+  animation: cardSheen 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes cardSheen {
+  0%, 55% { left: -70%; }
+  100% { left: 170%; }
+}
+
 .loyalty-card__top {
   display: flex;
   justify-content: space-between;
@@ -1337,6 +1455,12 @@ a { color: inherit; text-decoration: none; }
   color: #d7ffe0;
   text-shadow: 0 0 16px var(--green-soft);
   line-height: 1;
+  animation: pointsGlow 4s ease-in-out infinite;
+}
+
+@keyframes pointsGlow {
+  0%, 100% { text-shadow: 0 0 16px var(--green-soft); }
+  50% { text-shadow: 0 0 26px var(--green), 0 0 50px var(--green-soft); }
 }
 
 .loyalty-card__points span {
@@ -1362,6 +1486,31 @@ a { color: inherit; text-decoration: none; }
   border-radius: 6px;
   background: linear-gradient(90deg, var(--green), #a8ff5e);
   box-shadow: 0 0 12px var(--green-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer runs along the progress fill */
+.loyalty-card__bar i::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 45%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+  animation: barShimmer 3s ease-in-out infinite;
+}
+
+@keyframes barShimmer {
+  0%, 30% { transform: translateX(-130%); }
+  100% { transform: translateX(330%); }
+}
+
+/* VIP chip pulses softly */
+.loyalty-card__tier { animation: tierPulse 3.8s ease-in-out infinite; }
+
+@keyframes tierPulse {
+  0%, 100% { box-shadow: 0 0 0 rgba(255, 45, 77, 0); }
+  50% { box-shadow: 0 0 14px rgba(255, 45, 77, 0.45); }
 }
 
 .loyalty-card__bottom {
@@ -1864,6 +2013,11 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 1.1rem;
 }
 
+.product__icon { animation: iconBob 6s ease-in-out infinite; }
+.product:nth-child(2n) .product__icon { animation-delay: -1.6s; }
+.product:nth-child(3n) .product__icon { animation-delay: -3.2s; }
+.product:nth-child(4n) .product__icon { animation-delay: -4.4s; }
+
 .product__icon svg {
   width: 23px;
   height: 23px;
@@ -1873,6 +2027,17 @@ a { color: inherit; text-decoration: none; }
   stroke-linecap: round;
   stroke-linejoin: round;
   filter: drop-shadow(0 0 6px var(--green-soft));
+  transition: transform 0.35s var(--ease), filter 0.35s;
+}
+
+.product:hover .product__icon svg {
+  transform: scale(1.18) rotate(-5deg);
+  filter: drop-shadow(0 0 12px var(--green));
+}
+
+.product:hover .product__icon--eliquids svg,
+.product:hover .product__icon--glass svg {
+  filter: drop-shadow(0 0 12px var(--red));
 }
 
 .product__icon--eliquids, .product__icon--glass { background: var(--red-faint); }
