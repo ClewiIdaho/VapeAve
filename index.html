@@ -57,19 +57,58 @@
 
   <main id="top">
 
-    <!-- ============ HERO ============ -->
-    <section class="hero">
+    <!-- ============ HERO — night intersection scene ============ -->
+    <section class="hero hero--street">
       <div class="hero__glow hero__glow--green" aria-hidden="true"></div>
       <div class="hero__glow hero__glow--red" aria-hidden="true"></div>
-      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="hero__stars" aria-hidden="true"></div>
       <div class="hero__cloud hero__cloud--1" aria-hidden="true"></div>
       <div class="hero__cloud hero__cloud--2" aria-hidden="true"></div>
+      <div class="hero__cloud hero__cloud--3" aria-hidden="true"></div>
+
+      <!-- City skyline silhouette -->
+      <svg class="hero__skyline" viewBox="0 0 1440 180" preserveAspectRatio="none" aria-hidden="true">
+        <path fill="#0b0b0f" d="M0 180 V110 H70 V70 H130 V120 H200 V85 H260 V130 H330 V60 H400 V115 H470 V95 H540 V140 H620 V75 H690 V120 H760 V55 H830 V110 H900 V90 H970 V135 H1040 V70 H1110 V115 H1180 V95 H1250 V130 H1320 V80 H1390 V120 H1440 V180 Z"/>
+        <line x1="795" y1="55" x2="795" y2="36" stroke="#0b0b0f" stroke-width="3"/>
+        <circle class="skyline__beacon" cx="795" cy="33" r="3"/>
+        <g class="skyline__wins">
+          <rect x="82" y="88" width="5" height="8"/>
+          <rect x="104" y="102" width="5" height="8"/>
+          <rect class="skyline__win--g" x="344" y="78" width="5" height="8"/>
+          <rect x="368" y="96" width="5" height="8"/>
+          <rect x="634" y="93" width="5" height="8"/>
+          <rect class="skyline__win--r" x="660" y="110" width="5" height="8"/>
+          <rect class="skyline__win--g" x="774" y="72" width="5" height="8"/>
+          <rect x="796" y="88" width="5" height="8"/>
+          <rect x="812" y="104" width="5" height="8"/>
+          <rect x="1054" y="88" width="5" height="8"/>
+          <rect class="skyline__win--r" x="1080" y="104" width="5" height="8"/>
+          <rect class="skyline__win--g" x="1334" y="98" width="5" height="8"/>
+          <rect x="1360" y="112" width="5" height="8"/>
+        </g>
+      </svg>
+
+      <!-- Intersection ground plane with traffic light-trails -->
+      <div class="hero__street" aria-hidden="true">
+        <div class="street__plane">
+          <div class="street__cross"></div>
+          <div class="street__main"></div>
+          <i class="trail trail--r1"></i>
+          <i class="trail trail--g1"></i>
+          <i class="trail trail--g2"></i>
+          <i class="trail trail--r2"></i>
+        </div>
+      </div>
+
+      <div class="hero__dim" aria-hidden="true"></div>
       <div class="hero__vapor" aria-hidden="true">
         <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
       </div>
+
       <div class="container hero__inner">
         <p class="hero__eyebrow reveal">Garden City, Idaho &middot; Open daily 8 AM &ndash; Midnight</p>
-        <h1 class="hero__sign reveal" aria-label="Vape Ave">
+        <h1 class="hero__sign hero__sign--assembly reveal" aria-label="Vape Ave, at West State Street">
+          <span class="sign sign--cross" aria-hidden="true"><i class="sign--cross__bolt"></i>W STATE ST</span>
           <span class="sign sign--hero">
             <span class="sign__green">VAPE</span><span class="sign__red flicker">AVE</span>
           </span>
