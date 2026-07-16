@@ -141,6 +141,34 @@ a { color: inherit; text-decoration: none; }
 
 .sign--rewards { font-size: clamp(2rem, 6.5vw, 4.2rem); white-space: normal; text-align: center; }
 
+/* Hero sub-sign: small "and SMOKE SHOP" tube mounted under the main sign */
+.sign--sub {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 0.45em;
+  margin-top: 0.9em;
+  font-size: clamp(1.05rem, 2.8vw, 1.7rem);
+  letter-spacing: 0.32em;
+  text-indent: 0.32em; /* balances the letter-spacing trailing gap */
+}
+
+.sign--sub__and {
+  font-size: 0.78em;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: lowercase;
+  font-style: italic;
+}
+
+.sign--sub .sign__green {
+  animation: signPowerOn 2.6s linear 1 both, neonFlickerAlt 15s linear 2.6s infinite;
+}
+
+.sign--sub .sign__red {
+  animation: signPowerOn 2.9s linear 1 both, neonFlicker 11s linear 2.9s infinite;
+}
+
 .sign--nav { font-size: 1.35rem; }
 .sign--small { font-size: 2rem; }
 .sign--card { font-size: 1rem; }
@@ -310,6 +338,8 @@ a { color: inherit; text-decoration: none; }
   .flicker,
   .sign--hero .sign__green,
   .sign--hero .sign__red,
+  .sign--sub .sign__green,
+  .sign--sub .sign__red,
   .hero__sign.is-jolting .sign,
   .nav__logo:hover .sign__red,
   .hero__cloud,
