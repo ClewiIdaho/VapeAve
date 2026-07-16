@@ -310,7 +310,13 @@ a { color: inherit; text-decoration: none; }
   .hero__vapor i,
   .ticker__track i,
   .rewards-banner__card,
+  .hero__stars::after,
+  .skyline__beacon,
+  .street__main::before,
+  .trail,
+  .sign--cross,
   .btn::before { animation: none !important; }
+  .trail { display: none; }
   .hero__vapor { display: none; }
   html { scroll-behavior: auto; }
 }
@@ -676,6 +682,302 @@ a { color: inherit; text-decoration: none; }
   padding: 0.5em 1.3em;
   margin-bottom: 2rem;
   background: var(--red-faint);
+}
+
+/* ==========================================================================
+   NIGHT INTERSECTION SCENE (homepage hero)
+   Sky → stars → clouds → skyline → tilted ground plane with an
+   intersection and long-exposure traffic light-trails.
+   ========================================================================== */
+
+.hero--street {
+  background: linear-gradient(180deg, #07070a 0%, #0a0a0f 55%, #0c0c11 100%);
+}
+
+/* Stars — two offset dot layers, one twinkling */
+.hero__stars {
+  position: absolute;
+  inset: 0 0 45% 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.65) 0 1px, transparent 1.6px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.4) 0 1px, transparent 1.4px);
+  background-size: 210px 180px, 140px 120px;
+  background-position: 0 0, 70px 45px;
+  opacity: 0.4;
+  mask-image: linear-gradient(180deg, black 55%, transparent);
+  -webkit-mask-image: linear-gradient(180deg, black 55%, transparent);
+}
+
+.hero__stars::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0 1.2px, transparent 1.8px);
+  background-size: 320px 260px;
+  background-position: 140px 80px;
+  animation: starTwinkle 4.5s ease-in-out infinite;
+}
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.6; }
+}
+
+.hero__cloud--3 {
+  width: 420px;
+  height: 150px;
+  top: 34%;
+  left: 30%;
+  opacity: 0.04;
+  animation: cloudDrift 84s linear -55s infinite;
+}
+
+/* Skyline sits on the horizon (top edge of the road plane) */
+.hero__skyline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 34%;
+  width: 100%;
+  height: clamp(90px, 14vw, 170px);
+  pointer-events: none;
+}
+
+.skyline__wins rect { fill: rgba(236, 238, 241, 0.13); }
+.skyline__wins .skyline__win--g { fill: rgba(57, 255, 94, 0.5); }
+.skyline__wins .skyline__win--r { fill: rgba(255, 45, 77, 0.45); }
+
+.skyline__beacon {
+  fill: var(--red);
+  animation: beaconBlink 2.6s ease-in-out infinite;
+}
+
+@keyframes beaconBlink {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 1; }
+}
+
+/* Ground plane, tilted into perspective */
+.hero__street {
+  position: absolute;
+  left: -12%;
+  right: -12%;
+  bottom: 0;
+  height: 34%;
+  pointer-events: none;
+  perspective: 460px;
+  perspective-origin: 50% 0%;
+  overflow: hidden;
+}
+
+.street__plane {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 340%;
+  transform-origin: 50% 0;
+  transform: rotateX(58deg);
+  background:
+    radial-gradient(ellipse 70% 40% at 50% 0%, rgba(255, 255, 255, 0.045), transparent 70%),
+    linear-gradient(180deg, #101015 0%, #0b0b0e 100%);
+}
+
+/* Cross street — traffic runs left/right */
+.street__cross {
+  position: absolute;
+  left: -2%;
+  right: -2%;
+  top: 5%;
+  height: 22%;
+  background: #17171d;
+  border-top: 2px solid rgba(255, 255, 255, 0.14);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.14);
+}
+
+.street__cross::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 4px;
+  margin-top: -2px;
+  background: repeating-linear-gradient(90deg,
+    rgba(255, 214, 120, 0.4) 0 60px, transparent 60px 140px);
+}
+
+/* Main street — runs toward the viewer, dashes crawl forward */
+.street__main {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 36%;
+  transform: translateX(-50%);
+  background: #17171d;
+  border-left: 3px solid rgba(255, 255, 255, 0.14);
+  border-right: 3px solid rgba(255, 255, 255, 0.14);
+}
+
+.street__main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 5px;
+  margin-left: -2.5px;
+  background: repeating-linear-gradient(180deg,
+    rgba(255, 214, 120, 0.4) 0 44px, transparent 44px 140px);
+  animation: dashCrawl 2.8s linear infinite;
+}
+
+@keyframes dashCrawl {
+  from { background-position: 0 0; }
+  to { background-position: 0 140px; }
+}
+
+/* Crosswalk just past the intersection */
+.street__main::after {
+  content: "";
+  position: absolute;
+  left: 7%;
+  right: 7%;
+  top: 28.5%;
+  height: 7%;
+  background: repeating-linear-gradient(90deg,
+    rgba(255, 255, 255, 0.3) 0 34px, transparent 34px 66px);
+}
+
+/* Long-exposure traffic trails */
+.trail {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(6px);
+  opacity: 0;
+}
+
+/* Cross street: red taillights heading right */
+.trail--r1 {
+  top: 12%;
+  left: 0;
+  width: 30%;
+  height: 12px;
+  background: linear-gradient(90deg, transparent, rgba(255, 45, 77, 0.75) 65%, #ff98a8);
+  animation: trailRight 7s linear infinite;
+}
+
+/* Cross street: green headlights heading left */
+.trail--g1 {
+  top: 20%;
+  right: 0;
+  width: 30%;
+  height: 12px;
+  background: linear-gradient(270deg, transparent, rgba(57, 255, 94, 0.7) 65%, #b6ffc4);
+  animation: trailLeft 8.5s linear -4s infinite;
+}
+
+@keyframes trailRight {
+  0% { transform: translateX(-110%); opacity: 0; }
+  8% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translateX(460%); opacity: 0; }
+}
+
+@keyframes trailLeft {
+  0% { transform: translateX(110%); opacity: 0; }
+  8% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translateX(-460%); opacity: 0; }
+}
+
+/* Main street: green headlights approaching (toward viewer) */
+.trail--g2 {
+  left: calc(50% - 10%);
+  top: 26%;
+  width: 12px;
+  height: 34%;
+  background: linear-gradient(180deg, transparent, rgba(57, 255, 94, 0.7) 65%, #b6ffc4);
+  animation: trailDown 6s linear -2s infinite;
+}
+
+/* Main street: red taillights heading away */
+.trail--r2 {
+  left: calc(50% + 6%);
+  top: 26%;
+  width: 12px;
+  height: 34%;
+  background: linear-gradient(0deg, transparent, rgba(255, 45, 77, 0.7) 65%, #ff98a8);
+  animation: trailUp 7.5s linear -5s infinite;
+}
+
+@keyframes trailDown {
+  0% { transform: translateY(-90%); opacity: 0; }
+  10% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translateY(260%); opacity: 0; }
+}
+
+@keyframes trailUp {
+  0% { transform: translateY(260%); opacity: 0; }
+  10% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translateY(-90%); opacity: 0; }
+}
+
+/* Soft vignette so copy stays readable over the scene */
+.hero__dim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 62% 52% at 50% 44%, rgba(5, 5, 8, 0.6), transparent 72%);
+}
+
+/* Crossed street-name blade: VAPE AVE × W STATE ST */
+.hero__sign--assembly { position: relative; display: inline-block; margin-top: 1.6rem; }
+
+.sign--cross {
+  position: absolute;
+  top: -2.2em;
+  right: -2%;
+  z-index: -1;
+  font-family: var(--font-display);
+  font-size: clamp(0.8rem, 1.7vw, 1.15rem);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #ffd9df;
+  text-shadow: 0 0 6px rgba(255, 217, 223, 0.8), 0 0 16px var(--red), 0 0 40px var(--red-soft);
+  background: rgba(13, 9, 10, 0.96);
+  border: 2px solid rgba(255, 45, 77, 0.75);
+  border-radius: 9px;
+  padding: 0.45em 1.1em 0.45em 1.5em;
+  box-shadow:
+    0 0 12px rgba(255, 45, 77, 0.4),
+    inset 0 0 14px rgba(255, 45, 77, 0.12);
+  transform: rotate(3.5deg);
+  transform-origin: 12% 90%;
+  animation: bladeSway 6.5s ease-in-out infinite;
+  white-space: nowrap;
+}
+
+/* Mounting bolt where the blades cross */
+.sign--cross__bolt {
+  position: absolute;
+  left: 0.55em;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  margin-top: -4px;
+  border-radius: 50%;
+  background: #2a2a31;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.25), 0 0 6px rgba(0, 0, 0, 0.6);
+}
+
+@keyframes bladeSway {
+  0%, 100% { transform: rotate(3.5deg); }
+  50% { transform: rotate(2.2deg); }
 }
 
 /* ==========================================================================
