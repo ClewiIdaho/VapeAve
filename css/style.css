@@ -115,7 +115,10 @@ a { color: inherit; text-decoration: none; }
 .sign--hero {
   font-size: clamp(3rem, 9.5vw, 6.5rem);
   line-height: 1.05;
-  padding: 0.32em 0.55em;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  padding: 0.28em 0.55em 0.34em;
   border: 3px solid rgba(57, 255, 94, 0.8);
   border-radius: 22px;
   position: relative;
@@ -141,63 +144,24 @@ a { color: inherit; text-decoration: none; }
 
 .sign--rewards { font-size: clamp(2rem, 6.5vw, 4.2rem); white-space: normal; text-align: center; }
 
-/* Hero sub-sign: small "and SMOKE SHOP" tube mounted under the main sign */
+/* Main wordmark row inside the billboard */
+.sign--hero__row {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.28em;
+}
+
+/* Second line on the billboard: smaller tubes under the main wordmark */
 .sign--sub {
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: baseline;
-  gap: 0.45em;
-  margin-top: 0.9em;
-  font-size: clamp(1.1rem, 2.9vw, 1.8rem);
-  letter-spacing: 0.32em;
-  text-indent: 0.32em; /* balances the letter-spacing trailing gap */
-  position: relative;
-}
-
-.sign--sub .sign__green,
-.sign--sub .sign__red {
-  position: relative;
-  z-index: 2;
-}
-
-/* Vape cloud: a crisp SVG silhouette behind the letters, shaded as if lit
-   by the sign above it — bright crown, dark base, green/red tube light on
-   its flanks, and a darker core so the neon letters stay legible. The top
-   lobe drifts over the bottom-center of the main sign frame; a faint front
-   wisp floats over the letters so the neon reads as glowing through it. */
-.sign-cloud {
-  position: absolute;
-  left: 50%;
-  bottom: -1.6em;
-  width: 17em;
-  margin-left: -8.5em;
-  pointer-events: none;
-  z-index: 1;
-  transform-origin: 50% 82%;
-  animation: cloudIn 1.6s ease 0.5s both, cloudBreathe 8s ease-in-out 2.1s infinite alternate;
-}
-
-.sign-cloud--front {
-  bottom: -0.55em;
-  width: 11.5em;
-  margin-left: -5.75em;
-  z-index: 3;
-  animation: cloudIn 1.6s ease 0.9s both, wispDrift 11s ease-in-out 2.5s infinite alternate;
-}
-
-@keyframes cloudIn {
-  from { opacity: 0; transform: translateY(0.5em) scale(0.96); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-@keyframes cloudBreathe {
-  from { transform: translateY(0) scale(1); }
-  to   { transform: translateY(-0.16em) scale(1.04); }
-}
-
-@keyframes wispDrift {
-  from { transform: translateX(0) ; }
-  to   { transform: translateX(0.45em); }
+  gap: 0.5em;
+  margin-top: 0.55em;
+  font-size: 0.23em;
+  line-height: 1;
+  letter-spacing: 0.36em;
+  text-indent: 0.36em; /* balances the letter-spacing trailing gap */
 }
 
 .sign--sub__and {
@@ -396,7 +360,6 @@ a { color: inherit; text-decoration: none; }
   .sign--hero .sign__red,
   .sign--sub .sign__green,
   .sign--sub .sign__red,
-  .sign-cloud,
   .hero__sign.is-jolting .sign,
   .nav__logo:hover .sign__red,
   .hero__cloud,
